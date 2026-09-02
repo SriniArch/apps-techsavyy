@@ -7,28 +7,42 @@
 <title>Things I Built Instead of Touching Grass</title>
 <style>
   :root {
-    --bg: #0b0d12;
-    --bg-soft: #11141c;
-    --card: rgba(20, 24, 34, 0.82);
-    --border: rgba(255,255,255,.09);
-    --text: #f5f7fb;
-    --muted: #a5adbd;
-    --accent: #8b7cff;
-    --accent-2: #40d9b2;
-    --shadow: 0 20px 60px rgba(0,0,0,.28);
+    --bg: #f6f7fb;
+    --bg-soft: #ffffff;
+    --card: rgba(255,255,255,.88);
+    --border: rgba(20, 28, 45, .10);
+    --text: #202536;
+    --muted: #687083;
+    --accent: #6d5dfc;
+    --accent-2: #25b992;
+    --shadow: 0 14px 40px rgba(32, 37, 54, .09);
   }
 
   * { box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
 
+  #fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main, footer {
+    position: relative;
+    z-index: 1;
+  }
+
   body {
     margin: 0;
     min-height: 100vh;
     color: var(--text);
     background:
-      radial-gradient(circle at 10% 10%, rgba(139,124,255,.18), transparent 28rem),
-      radial-gradient(circle at 90% 20%, rgba(64,217,178,.10), transparent 25rem),
+      radial-gradient(circle at 8% 5%, rgba(109,93,252,.08), transparent 25rem),
+      radial-gradient(circle at 92% 18%, rgba(37,185,146,.07), transparent 24rem),
       var(--bg);
     font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
@@ -50,13 +64,13 @@
     align-items: center;
     gap: 8px;
     padding: 8px 14px;
-    border: 1px solid rgba(64,217,178,.2);
+    border: 1px solid rgba(37,185,146,.22);
     border-radius: 999px;
-    background: rgba(64,217,178,.08);
-    color: #9ff1db;
-    font-size: .85rem;
+    background: rgba(37,185,146,.08);
+    color: #198a6d;
+    font-size: .82rem;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .dot {
@@ -69,25 +83,23 @@
 
   h1 {
     max-width: 850px;
-    margin: 0 auto 18px;
-    font-size: clamp(2.7rem, 7vw, 5.8rem);
-    line-height: .98;
-    letter-spacing: -0.055em;
+    margin: 0 auto 10px;
+    font-size: clamp(2.1rem, 5vw, 3.8rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
   }
 
   .gradient {
-    background: linear-gradient(100deg, #fff, #a99eff 45%, #62e7c4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--text);
   }
 
   .intro {
     max-width: 650px;
     margin: auto;
-    color: var(--muted);
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #3f4657;
+    font-size: clamp(.95rem, 2vw, 1.08rem);
     line-height: 1.7;
+    font-weight: 500;
   }
 
   .stats {
@@ -100,11 +112,12 @@
 
   .stat {
     padding: 9px 13px;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(20, 28, 45, .12);
     border-radius: 10px;
-    color: #cdd3df;
-    background: rgba(255,255,255,.025);
+    color: #41495a;
+    background: rgba(255,255,255,.78);
     font-size: .85rem;
+    font-weight: 650;
   }
 
   .apps {
@@ -123,7 +136,7 @@
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 24px;
-    background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+    background: var(--card);
     box-shadow: var(--shadow);
     transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease;
   }
@@ -156,8 +169,8 @@
     display: grid;
     place-items: center;
     border-radius: 17px;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.08);
+    background: #f0f2f8;
+    border: 1px solid rgba(20, 28, 45, .07);
     font-size: 1.8rem;
     margin-bottom: 22px;
   }
@@ -186,24 +199,25 @@
     gap: 9px;
     padding: 11px 15px;
     border-radius: 12px;
-    background: rgba(255,255,255,.075);
-    border: 1px solid rgba(255,255,255,.09);
+    background: #f0f1f7;
+    border: 1px solid rgba(20, 28, 45, .08);
     font-size: .9rem;
     font-weight: 750;
     transition: background .2s ease, gap .2s ease;
   }
 
   .open:hover {
-    background: rgba(255,255,255,.13);
+    background: #e7e9f1;
     gap: 13px;
   }
 
   .process {
-    margin: 0 0 75px;
+    margin: 0 auto 75px;
     padding: 40px;
     border: 1px solid var(--border);
     border-radius: 28px;
-    background: rgba(255,255,255,.035);
+    background: rgba(255,255,255,.72);
+    text-align: center;
   }
 
   .process h2 {
@@ -213,8 +227,9 @@
   }
 
   .process > p {
-    margin: 0 0 25px;
+    margin: 0 auto 25px;
     color: var(--muted);
+    max-width: 700px;
   }
 
   .steps {
@@ -227,15 +242,15 @@
     padding: 16px 13px;
     border: 1px solid var(--border);
     border-radius: 15px;
-    background: rgba(0,0,0,.15);
-    color: #d8dce5;
+    background: rgba(255,255,255,.72);
+    color: #596174;
     font-size: .88rem;
     line-height: 1.45;
   }
 
   .step strong {
     display: block;
-    color: #fff;
+    color: var(--text);
     margin-bottom: 5px;
   }
 
@@ -275,6 +290,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    #fireworks { display: none; }
     *, *::before, *::after {
       animation-duration: .01ms !important;
       animation-iteration-count: 1 !important;
@@ -285,18 +301,18 @@
 </head>
 
 <body>
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+
   <main>
     <header class="container">
       <div class="badge"><span class="dot"></span> Currently pretending to be productive</div>
 
       <h1>
-        Things I Built<br>
-        <span class="gradient">Instead of Touching Grass</span>
+        Apps Nobody Asked For
       </h1>
 
       <p class="intro">
-        A completely unnecessary collection of apps that somehow became real websites.
-        Yes, I built these. No, I don't remember why.
+        But here they are anyway.
       </p>
 
       <div class="stats">
@@ -402,5 +418,131 @@
       <strong>Techsavyy</strong>
     </div>
   </footer>
+
+<script>
+(() => {
+  const canvas = document.getElementById("fireworks");
+  const ctx = canvas.getContext("2d");
+  let width, height, dpr;
+  let fireworks = [];
+  let sparks = [];
+  let lastLaunch = 0;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function launch() {
+    fireworks.push({
+      x: Math.random() * width,
+      y: height + 10,
+      targetX: 80 + Math.random() * (width - 160),
+      targetY: 90 + Math.random() * Math.min(height * .42, 360),
+      speed: 5 + Math.random() * 2,
+      hue: Math.floor(Math.random() * 360),
+      trail: []
+    });
+  }
+
+  function explode(x, y, hue) {
+    const count = 55 + Math.floor(Math.random() * 30);
+
+    // Bright central flash.
+    sparks.push({
+      x, y,
+      vx: 0, vy: 0,
+      life: 16,
+      maxLife: 16,
+      hue
+    });
+
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1.5 + Math.random() * 4.2;
+      sparks.push({
+        x, y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 45 + Math.random() * 28,
+        maxLife: 73,
+        hue: hue + (Math.random() * 25 - 12)
+      });
+    }
+  }
+
+  function draw(time) {
+    ctx.clearRect(0, 0, width, height);
+
+    // Occasional, intentionally subtle launches.
+    if (time - lastLaunch > 1200 + Math.random() * 1300) {
+      launch();
+      lastLaunch = time;
+    }
+
+    fireworks = fireworks.filter(f => {
+      const dx = f.targetX - f.x;
+      const dy = f.targetY - f.y;
+      const distance = Math.hypot(dx, dy);
+
+      f.trail.push({ x: f.x, y: f.y });
+      if (f.trail.length > 5) f.trail.shift();
+
+      if (distance < f.speed + 2) {
+        explode(f.x, f.y, f.hue);
+        return false;
+      }
+
+      f.x += dx / distance * f.speed;
+      f.y += dy / distance * f.speed;
+
+      ctx.beginPath();
+      ctx.moveTo(f.x, f.y);
+      ctx.lineTo(f.trail[0]?.x ?? f.x, f.trail[0]?.y ?? f.y);
+      ctx.strokeStyle = `hsla(${f.hue}, 100%, 48%, .98)`;
+      ctx.lineWidth = 3;
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = `hsla(${f.hue}, 95%, 55%, .8)`;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      return true;
+    });
+
+    sparks = sparks.filter(s => {
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vy += .035;
+      s.vx *= .985;
+      s.vy *= .985;
+      s.life--;
+
+      const alpha = Math.max(0, s.life / s.maxLife);
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, 2.4, 0, Math.PI * 2);
+      ctx.fillStyle = `hsla(${s.hue}, 100%, 48%, ${alpha * .95})`;
+      ctx.shadowBlur = 12;
+      ctx.shadowColor = `hsla(${s.hue}, 100%, 55%, ${alpha})`;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+
+      return s.life > 0;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+  requestAnimationFrame(draw);
+})();
+</script>
+
 </body>
 </html>
